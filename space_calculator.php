@@ -19,18 +19,22 @@ class Rectangle implements Shape{
     private $width, $height;
         
         //constructor
-    public function __construct($width, $height){
+    public function __construct($length, $width){
+        $this->length = $length;
         $this->width = $width;
-        $this->height = $height;
     }
-        
-        
+    public function length(){
+        return $this->length;
+    }   
+    public function width(){
+        return $this->width;
+    }
     public function area(){
-        return $this->width * $this->height;
+        return $this->length * $this->width;
     }
 
     public function perimeter(){
-        return 2 *($this->width + $this->height);
+        return 2 *($this->length + $this->widtht);
     }
 }
 
@@ -43,6 +47,9 @@ class Circle implements Shape{
         $this->radius = $radius;
     }
 
+    public function radius(){
+        return $this->radius;
+    }
         
     public function area(){
         return M_PI * pow($this->radius, 2);
@@ -59,6 +66,9 @@ class Ball implements Shape3D{
 
     public function __construct($radius){
         $this->radius = $radius;
+    }
+    public function radius(){
+        return $this->radius;
     }
     public function area(){     
                 return 4 * M_PI * pow($this->radius, 2);
@@ -79,6 +89,12 @@ class Cone implements Shape3D{
         $this->radius = $radius;
                 $this->height = $height;
     }
+    public function radius(){
+        return $this->radius;
+    }
+    public function height(){
+        return $this->height;
+    }
     public function area(){     
                 $r = $this->radius;
                 $h = $this->height;
@@ -98,6 +114,9 @@ class Cube implements Shape3D{
 
     public function __construct($side){
         $this->side = $side;
+    }
+    public function side(){
+        return $this->side;
     }
     public function area(){     
                 return 6 * pow($this->side, 2);
@@ -122,13 +141,20 @@ $shapes =  array($rec, $circle, $cube, $cone, $ball);
 
 
 // calling the function
-echo 'The circumference of the circle is: ' . $shapes[1]->perimeter() .'<br />';
+echo 'The circumference of the circle is (Keliling Lingkaran): ' . $shapes[1]->perimeter() .'<br />';
+echo 'Length of radius : '.$shapes[1]->radius().'<br />';
 echo '<br>';
-echo 'The volume of the cube is: ' . $shapes[2]->volume() .'<br />';
+echo 'The volume of the cube is (Volume Kubus): ' . $shapes[2]->volume() .'<br />';
+echo 'Length of radius : '.$shapes[2]->side().'<br />';
 echo '<br>';
-echo 'The volume of the cone is: ' . $shapes[3]->volume() .'<br />';
+echo 'The volume of the cone is (Volume Kerucut): ' . $shapes[3]->volume() .'<br />';
+echo 'Length of radius : '.$shapes[3]->radius().'<br />';
+echo 'Height : '.$shapes[3]->height().'<br />';
 echo '<br>';
-echo 'The area of ​​the rectangle is: ' . $shapes[0]->area() .'<br />';
+echo 'The area of ​​the rectangle is (Luas Persegi Panjang): ' . $shapes[0]->area() .'<br />';
+echo 'Length : '.$shapes[0]->length().'<br />';
+echo 'Width : '.$shapes[0]->width().'<br />';
 echo '<br>';
-echo 'The volume of the ball is: ' . $shapes[4]->volume() .'<br />';
+echo 'The volume of the ball is (Volume Bola): ' . $shapes[4]->volume() .'<br />';
+echo 'Length of radius : '.$shapes[4]->radius().'<br />';
 ?>
